@@ -17,12 +17,20 @@ class Player extends Component {
 
   render() {
     return (
-      <p>
-        {this.props.player.name} has {this.props.player.score} points(s).
-        <button onClick={() => this.handleIncrement(this.props.player)}>+1</button>
-        <button onClick={() => this.handleDecrement(this.props.player)}>-1</button>
-        <button onClick={() => this.handleDelete(this.props.player)}>X</button>
-      </p>
+      <div key={this.props.player._id} className="item">
+        <div className="player">
+          <div>
+            <h3 className="player__name">{this.props.player.name}</h3>
+            <p className="player__stats">{this.props.player.score} points(s).</p>
+          </div>
+
+          <div className="player__actions">
+            <button className="button button--round" onClick={() => this.handleIncrement(this.props.player)}>+1</button>
+            <button className="button button--round" onClick={() => this.handleDecrement(this.props.player)}>-1</button>
+            <button className="button button--round" onClick={() => this.handleDelete(this.props.player)}>X</button>
+          </div>
+        </div>
+      </div>
     )
   }
 }
